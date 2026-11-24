@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Centralina Monitoraggio Falda - Spiaggia di Levante - Caorle (VE)</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
+            background-color: #f1f5f9;
+            color: #0f172a;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .container {
+            width: 100%;
+            max-width: 950px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 24px;
+        }
+        /* Intestazione con Logo e Titolo */
+        .header {
+            width: 100%;
+            background-color: #ffffff;
+            border-radius: 14px;
+            padding: 20px 24px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            box-sizing: border-box;
+            flex-wrap: wrap;
+            text-align: center;
+        }
+        .logo-box {
+            max-height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .logo-box img {
+            max-height: 70px;
+            width: auto;
+            object-fit: contain;
+        }
+        .header-text h1 {
+            margin: 0;
+            font-size: 20px;
+            font-weight: 800;
+            color: #0f172a;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .header-text p {
+            margin: 4px 0 0 0;
+            font-size: 13px;
+            color: #64748b;
+            font-weight: 600;
+        }
+
+        /* Card Principale Falda */
+        .card {
+            width: 100%;
+            max-width: 400px;
+            border-radius: 16px;
+            padding: 24px;
+            text-align: center;
+            border: 2px solid #cbd5e1;
+            background-color: #ffffff;
+            box-shadow: 0 6px 16px rgba(0,0,0,0.07);
+            transition: all 0.3s ease;
+            box-sizing: border-box;
+        }
+        .card-title {
+            font-size: 13px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.6px;
+            color: #475569;
+            margin-bottom: 8px;
+        }
+        .card-value {
+            font-size: 46px;
+            font-weight: 800;
+            line-height: 1.1;
+            margin: 8px 0;
+            color: #0f172a;
+        }
+        .card-status {
+            font-size: 15px;
+            font-weight: 700;
+            margin-top: 8px;
+            min-height: 22px;
+        }
+        .card-footer {
+            margin-top: 14px;
+            padding-top: 12px;
+            border-top: 1px solid rgba(15,23,42,0.1);
+            font-size: 12px;
+            color: #64748b;
+            line-height: 1.5;
+        }
+
+        /* Tabella Storico Ultime 10 Rilevazioni */
+        .table-section {
+            width: 100%;
+            background-color: #ffffff;
+            border-radius: 14px;
+            padding: 20px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            box-sizing: border-box;
+        }
+        .table-header {
+            font-size: 15px;
+            font-weight: 700;
+            color: #1e293b;
+            margin: 0 0 14px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .table-wrapper {
+            width: 100%;
+            overflow-x: auto;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 13px;
+            text-align: center;
+            white-space: nowrap;
+        }
+        thead {
+            background-color: #f8fafc;
+            border-bottom: 2px solid #e2e8f0;
+        }
+        th {
+            padding: 10px 10px;
+            font-weight: 700;
+            color: #475569;
+            text-transform: uppercase;
+            font-size: 11px;
+            letter-spacing: 0.4px;
+        }
+        td {
+            padding: 10px 10px;
+            border-bottom: 1px solid #f1f5f9;
+            color: #334155;
+        }
+        tbody tr:hover {
+            background-color: #f8fafc;
+        }
+        .badge-update {
+            font-size: 11px;
+            font-weight: 600;
+            color: #64748b;
+            background: #f1f5f9;
+            padding: 4px 10px;
+            border-radius: 20px;
+        }
+
+        /* Annotazione in fondo */
+        .note-footer {
+            width: 100%;
+            background-color: #ffffff;
+            border-radius: 10px;
+            padding: 12px 16px;
+            font-size: 12px;
+            color: #64748b;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.03);
+            box-sizing: border-box;
+            border-left: 4px solid #3b82f6;
+            line-height: 1.4;
+        }
+        .note-footer b {
+            color: #1e293b;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        
+        <!-- INTESTAZIONE CON LOGO -->
+        <div class="header">
+            <div class="logo-box">
+                <!-- Sostituisci "logo.png" con il nome del tuo file logo o con un link URL dell'immagine -->
+                <img src="logo.png" alt="Logo Consorzio" onerror="this.style.display='none'">
+            </div>
+            <div class="header-text">
+                <h1>Centralina Monitoraggio Falda</h1>
+                <p>Spiaggia di Levante - Caorle (VE)</p>
+            </div>
+        </div>
+
+        <!-- CARD PRINCIPALE DA OSSERVARE -->
+        <div class="card" id="cardContainer">
+            <div class="card-title">Distanza dal Piano Sabbia (Idrostatico)</div>
+            <div class="card-value" id="valoreDelta">--</div>
+            <div class="card-status" id="testoStato">Caricamento dati in corso...</div>
+            <div class="card-footer" id="dettagliSensore">
+                Acqua sul sensore: <b>--</b> · Riferimento sabbia: <b>150 cm</b>
+            </div>
+        </div>
+
+        <!-- TABELLA ULTIMI 10 VALORI RILEVATI -->
+        <div class="table-section">
+            <div class="table-header">
+                <span>Ultimi 10 Rilevamenti</span>
+                <span class="badge-update" id="ultimoAggiornamento">In aggiornamento...</span>
+            </div>
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Data</th>
+                            <th>Ora</th>
+                            <th>Idrostatico (Delta)</th>
+                            <th>Ultrasuoni</th>
+                            <th>Temperatura</th>
+                            <th>Umidità</th>
+                            <th>Pioggia</th>
+                            <th>Stato FV</th>
+                            <th>Batteria</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tabellaCorpo">
+                        <tr>
+                            <td colspan="9" style="color: #64748b; padding: 20px;">Caricamento storico in corso...</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- ANNOTAZIONE STATO PANNELLO FV -->
+        <div class="note-footer">
+            <b>Legenda Stato Pannello FV:</b> 
+            <b>0</b> = nessun ingresso (notte o guasto) &nbsp;|&nbsp; 
+            <b>1</b> = ingresso presente ma batteria non in carica &nbsp;|&nbsp; 
+            <b>2</b> = batteria in carica
+        </div>
+
+    </div>
+
+    <script>
+        const channelID = '3301039';
+        const profonditaSabbiaCm = 150;
+        const sogliaAllertaCm = -20;
+
+        function formattaDato(valore, suffisso = '', decimali = 1) {
+            if (valore === null || valore === undefined || valore === '' || isNaN(parseFloat(valore))) {
+                return '-';
+            }
+            const num = parseFloat(valore);
+            return `${num.toFixed(decimali)}${suffisso}`;
+        }
+
+        async function caricaDatiFalda() {
+            const url = `https://api.thingspeak.com/channels/${channelID}/feeds.json?results=10`;
+            
+            try {
+                const response = await fetch(url);
+                const data = await response.json();
+                
+                if (!data.feeds || data.feeds.length === 0) {
+                    throw new Error("Nessun dato trovato nel canale");
+                }
+
+                // 1. AGGIORNA LA CARD PRINCIPALE
+                const ultimoRecord = data.feeds[data.feeds.length - 1];
+                const acquaSopraSensoreCm = parseFloat(ultimoRecord.field1);
+                
+                if (!isNaN(acquaSopraSensoreCm)) {
+                    const acquaInteraCm = Math.trunc(acquaSopraSensoreCm);
+                    const deltaCm = acquaInteraCm - profonditaSabbiaCm;
+
+                    const card = document.getElementById('cardContainer');
+                    const elValore = document.getElementById('valoreDelta');
+                    const elStato = document.getElementById('testoStato');
+                    const elDettagli = document.getElementById('dettagliSensore');
+
+                    elValore.innerText = deltaCm > 0 ? `+${deltaCm} cm` : `${deltaCm} cm`;
+
+                    if (deltaCm >= sogliaAllertaCm) {
+                        card.style.backgroundColor = '#fef2f2';
+                        card.style.borderColor = '#ef4444';
+                        elValore.style.color = '#b91c1c';
+                        elStato.style.color = '#b91c1c';
+                        elStato.innerText = 'Attenzione possibili allagamenti';
+                    } else {
+                        card.style.backgroundColor = '#f0fdf4';
+                        card.style.borderColor = '#22c55e';
+                        elValore.style.color = '#15803d';
+                        elStato.style.color = '#15803d';
+                        
+                        if (deltaCm > 0) {
+                            elStato.innerText = `+${deltaCm} cm sopra il piano sabbia`;
+                        } else {
+                            elStato.innerText = `Mancano ${Math.abs(deltaCm)} cm al piano sabbia`;
+                        }
+                    }
+
+                    elDettagli.innerHTML = `Acqua sul sensore (Idrostatico): <b>${acquaInteraCm} cm</b> · Riferimento sabbia: <b>${profonditaSabbiaCm} cm</b>`;
+                }
+
+                // 2. POPOLA LA TABELLA CON IL CALCOLO DELL'OFFSET APPLICATO ANCHE ALL'IDROSTATICO
+                const tbody = document.getElementById('tabellaCorpo');
+                tbody.innerHTML = '';
+
+                const feedsInvertiti = [...data.feeds].reverse();
+
+                feedsInvertiti.forEach(feed => {
+                    const dataObj = new Date(feed.created_at);
+                    const dataStr = dataObj.toLocaleDateString('it-IT');
+                    const oraStr = dataObj.toLocaleTimeString('it-IT', { hour: '2-digit', minute: '2-digit' });
+
+                    // Calcolo Idrostatico finito (valore sensore - 150 cm di riferimento sabbia)
+                    let idrostaticoStr = '-';
+                    if (feed.field1 !== null && feed.field1 !== undefined && feed.field1 !== '' && !isNaN(parseFloat(feed.field1))) {
+                        const valSensore = Math.trunc(parseFloat(feed.field1));
+                        const deltaTabella = valSensore - profonditaSabbiaCm;
+                        idrostaticoStr = deltaTabella > 0 ? `+${deltaTabella} cm` : `${deltaTabella} cm`;
+                    }
+
+                    const ultrasuoni  = formattaDato(feed.field2, ' cm', 0);
+                    const temperatura = formattaDato(feed.field3, ' °C', 1);
+                    const umidita     = formattaDato(feed.field4, ' %', 0);
+                    const pioggia     = formattaDato(feed.field5, ' mm', 1);
+                    const statoFV     = formattaDato(feed.field6, '', 0);
+                    const batteria    = formattaDato(feed.field7, ' V', 2);
+
+                    const tr = document.createElement('tr');
+                    tr.innerHTML = `
+                        <td><b>${dataStr}</b></td>
+                        <td>${oraStr}</td>
+                        <td><b>${idrostaticoStr}</b></td>
+                        <td>${ultrasuoni}</td>
+                        <td>${temperatura}</td>
+                        <td>${umidita}</td>
+                        <td>${pioggia}</td>
+                        <td><b>${statoFV}</b></td>
+                        <td>${batteria}</td>
+                    `;
+                    tbody.appendChild(tr);
+                });
+
+                const adesso = new Date();
+                document.getElementById('ultimoAggiornamento').innerText = 
+                    `Aggiornato alle ${adesso.toLocaleTimeString('it-IT', { hour: '2-digit', minute: '2-digit', second: '2-digit' })}`;
+
+            } catch (error) {
+                console.error("Errore nel recupero dati:", error);
+                document.getElementById('testoStato').style.color = 'red';
+                document.getElementById('testoStato').innerText = 'Errore di connessione a ThingSpeak';
+            }
+        }
+
+        caricaDatiFalda();
+        setInterval(caricaDatiFalda, 30000);
+    </script>
+
+</body>
+</html>
